@@ -1,0 +1,31 @@
+{% extends 'main.html' %}
+
+    {% block content %}
+    <div class="auth-container">
+        <div class="auth-card">
+            <br><h1>Login Page</h1><br>
+            {% if messages %}
+                <div class="messages-container">
+                    {% for i in messages %}
+                        <div class="message">{{i}}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            <form action="" method="POST">
+                {% csrf_token %}
+                
+                <label for="">Username:</label>
+                <input type="text" name="uname" id=""><br><br>
+
+                <label for="">Password:</label>
+                <input type="password" name="pasw" id=""><br><br>
+
+                <button type="submit">Submit</button>
+            </form>
+            <div class="auth-links">
+                <a href="{% url 'fpass' %}">Forgot Password</a>
+                <a href="{% url 'register' %}">Register</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

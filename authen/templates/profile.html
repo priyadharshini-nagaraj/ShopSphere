@@ -1,0 +1,36 @@
+{% extends 'main.html' %}
+
+    {% block content %}
+        <div class="profile-card">
+            <br><h1>Profile Details</h1><br>
+            
+            {% if profile %}
+                <img src="{{ profile.pimage.url }}"class="profile-img">
+            {% else %}
+                <img src="/media/default_profile.webp" class="profile-img">
+            {% endif %}
+
+            <h3>User: {{request.user}}</h3><br>
+            <h3>First Name: {{request.user.first_name}}</h3><br>
+            <h3>Last Name: {{request.user.last_name}}</h3><br>
+            <h3>Email: {{request.user.email}}</h3><br>
+            <h3>Username: {{request.user.username}}</h3><br>
+            
+            <div class="profile-actions">
+
+                <a href="{% url 'update' %}" class="profile-btn">
+                    Update Profile
+                </a>
+
+                <a href="{% url 'reset' %}" class="profile-btn">
+                    Reset Password
+                </a>
+
+                <a href="{% url 'logout' %}" class="profile-btn logout-btn">
+                    Logout
+                </a>
+
+            </div>
+
+        </div>
+    {% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="cart-container">
+
+    <h1>🛒 Shopping Cart</h1>
+
+    <table class="cart-table">
+        <tr>
+            <th>S.No</th>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+            <th>Action</th>
+        </tr>
+
+        {% for i in cart_product %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+
+            <td>{{i.pname}}</td>
+
+            <td>₹{{i.price}}</td>
+
+            <td>
+                <div class="quantity-box">
+                    <a href="{% url 'minus' i.id %}">−</a>
+                    <span>{{i.quantity}}</span>
+                    <a href="{% url 'plus' i.id %}">+</a>
+                </div>
+            </td>
+
+            <td>₹{{i.total_price}}</td>
+
+            <td>
+                <a href="{% url 'remove' i.id %}" class="remove-btn">
+                    Remove
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <div class="cart-summary">
+        <h2>Total Price: ₹{{TA}}</h2>
+
+        <button class="checkout-btn">
+            Proceed to Checkout
+        </button>
+    </div>
+
+</div>
+
+{% endblock %}

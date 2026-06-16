@@ -1,0 +1,26 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+    <div class="auth-container">
+        <div class="auth-card">
+            <form action="" method="POST">
+                {% csrf_token %}
+                {% if error %}
+                    <div class="message">Invalid Username</div>
+                {% endif %}
+                
+                {% if new %}
+                <label for="">New Password::</label>
+                <input type="password" name="password" id=""> <br><br>
+                {% else %}
+                <label for="">Enter Username:</label>
+                <input type="text" name="uname" id=""> <br><br>
+                {% endif %}
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

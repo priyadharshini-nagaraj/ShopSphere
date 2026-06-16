@@ -1,0 +1,42 @@
+{% extends 'main.html' %}
+    {% block content %}
+    <div class="auth-container">
+        <div class="auth-card">
+            {% if messages %}
+                <div class="messages-container">
+                    {% for i in messages %}
+                        <div class="message">{{i}}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            <br><h1>Regiter Here</h1><br>
+            <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <label for="">First Name:</label>
+                <input type="text" name="fname" id=""><br><br>
+
+                <label for="">Last Name:</label>
+                <input type="text" name="lname" id=""><br><br>
+
+                <label for="">Email:</label>
+                <input type="email" name="email" id=""><br><br>
+                
+                <label for="">Username:</label>
+                <input type="text" name="uname" id=""><br><br>
+
+                <label for="">Password:</label>
+                <input type="password" name="pasw" id=""><br><br>
+
+                <label for="">Profile Image:</label>
+                <input type="file" name="pimage" id=""><br><br>
+
+                <button type="submit">Submit</button><br>
+            </form>
+            <div class="auth-footer">
+                <span>Already have an account?</span>
+                <a href="{% url 'login' %}">Login</a>
+            </div>
+        </div>
+    </div>
+        
+    {% endblock %}
