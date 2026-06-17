@@ -164,7 +164,7 @@ Add screenshots here.
 
 ## 👩‍💻 Author
 
-**Priya Dharshini**
+**Priyadharshini**
 
 GitHub:
 https://github.com/priyadharshini-nagaraj
